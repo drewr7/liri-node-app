@@ -35,9 +35,11 @@ axios.get(queryUrl).then(
     console.log(
         "Title: " + response.data.Title + '\n',
         "Year: " + response.data.Year + '\n',
-        "Rated: " + response.data.Rated + '\n',
-        "Director: " + response.data.Director + '\n',
-        "IMDB Rating: " + response.data.imdbRating,
+        "IMDB Rating: " + response.data.imdbRating + '\n',
+        "Country: " + response.data.Country + '\n',
+        "Language: " + response.data.Language + '\n',
+        "Plot: " + response.data.Plot + '\n',
+        "Actors: " + response.data.Actors + '\n',
         );
   })
   .catch(function(error) {
@@ -102,25 +104,24 @@ axios.get(queryUrl).then(
 
   }
 
-// else if (process.argv[2] === "concert"){
-//   for (var i = 3; i < nodeArgs.length; i++) {
-//
-//       if (i > 3 && i < nodeArgs.length) {
-//         artistName = artistName + " " + nodeArgs[i];
-//       } else {
-//         artistName += nodeArgs[i];
-//       }
-//     }
-//     console.log(artistName);
-//
-//   var query = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
-//
-//   axios.get(query).then(
-//       function(response) {
-//         console.log(artists.name);
-//       })
+else if (process.argv[2] === "concert"){
+  for (var i = 3; i < nodeArgs.length; i++) {
 
- // }
+      if (i > 3 && i < nodeArgs.length) {
+        artistName = artistName + " " + nodeArgs[i];
+      } else {
+        artistName += nodeArgs[i];
+      }
+    }
+    console.log(artistName);
+
+  var query = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
+
+  axios.get(query).then(
+      function(response) {
+        console.log(artists.name);
+      })
+ }
 
   else {
       console.log("Please enter valid LIRI type")
