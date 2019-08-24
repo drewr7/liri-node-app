@@ -1,5 +1,7 @@
+
 // Include the axios npm package (Don't forget to run "npm install axios" in this folder first!)
 var axios = require("axios");
+
 
 // Store all of the arguments in an array
 var nodeArgs = process.argv;
@@ -89,9 +91,10 @@ axios.get(queryUrl).then(
 
         data.tracks.items.map( function (track){
             console.log('============')
+            console.log(track.artists[0].name)
             console.log(track.name)
+            console.log(track.artists[0].href)
             console.log(track.album.name)
-            console.log(track.artist.name)
             console.log('============')
             
         } ); 
@@ -99,14 +102,27 @@ axios.get(queryUrl).then(
 
   }
 
-  else if (process.argv[2] === "concert"){
-    for (var i = 3; i < nodeArgs.length; i++) {
+// else if (process.argv[2] === "concert"){
+//   for (var i = 3; i < nodeArgs.length; i++) {
+//
+//       if (i > 3 && i < nodeArgs.length) {
+//         artistName = artistName + " " + nodeArgs[i];
+//       } else {
+//         artistName += nodeArgs[i];
+//       }
+//     }
+//     console.log(artistName);
+//
+//   var query = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
+//
+//   axios.get(query).then(
+//       function(response) {
+//         console.log(artists.name);
+//       })
 
-        if (i > 3 && i < nodeArgs.length) {
-          artistName = artistName + "+" + nodeArgs[i];
-        } else {
-          artistName += nodeArgs[i];
-        }
-      }
+ // }
+
+  else {
+      console.log("Please enter valid LIRI type")
   }
 
