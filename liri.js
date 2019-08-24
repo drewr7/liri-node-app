@@ -60,11 +60,28 @@ axios.get(queryUrl).then(
   })}
 
   else if (process.argv[2] === "song"){
+    for (var i = 3; i < nodeArgs.length; i++) {
+
+        if (i > 3 && i < nodeArgs.length) {
+          songName = songName + "+" + nodeArgs[i];
+        } else {
+          songName += nodeArgs[i];
+        }
+      }
+    console.log(songName)
 
   }
 
   else if (process.argv[2] === "concert"){
+    for (var i = 3; i < nodeArgs.length; i++) {
 
+        if (i > 3 && i < nodeArgs.length) {
+          artistName = artistName + "+" + nodeArgs[i];
+        } else {
+          artistName += nodeArgs[i];
+        }
+      }
+      console.log(artistName)
 }
 
 
