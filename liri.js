@@ -4,18 +4,21 @@ var axios = require("axios");
 // Store all of the arguments in an array
 var nodeArgs = process.argv;
 
-// Create an empty variable for holding the movie name
-var movieName = "";
+// Create empty variables for holding the movie, song and artist name
+let movieName = "";
+let songName = "";
+let artistName = "";
 
 // Loop through all the words in the node argument
 // And do a little for-loop magic to handle the inclusion of "+"s
-for (var i = 2; i < nodeArgs.length; i++) {
+if (process.argv[2] === "movie"){
 
-  if (i > 2 && i < nodeArgs.length) {
+for (var i = 3; i < nodeArgs.length; i++) {
+
+  if (i > 3 && i < nodeArgs.length) {
     movieName = movieName + "+" + nodeArgs[i];
   } else {
     movieName += nodeArgs[i];
-
   }
 }
 
@@ -54,4 +57,14 @@ axios.get(queryUrl).then(
       console.log("Error", error.message);
     }
     console.log(error.config);
-  });
+  })}
+
+  else if (process.argv[2] === "song"){
+
+  }
+
+  else if (process.argv[2] === "concert"){
+
+}
+
+
