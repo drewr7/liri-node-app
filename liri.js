@@ -60,15 +60,42 @@ axios.get(queryUrl).then(
   })}
 
   else if (process.argv[2] === "song"){
+
     for (var i = 3; i < nodeArgs.length; i++) {
 
         if (i > 3 && i < nodeArgs.length) {
           songName = songName + "+" + nodeArgs[i];
         } else {
-          songName += nodeArgs[i];
+            songName += nodeArgs[i];
         }
       }
     console.log(songName)
+
+    var Spotify = require('node-spotify-api');
+
+      var spotify = new Spotify({
+      id: "67c9837325db41789aef23ccf82794cc",
+      secret: "a8827e790c7e40a8b3375f14eab033d7",
+})
+
+      spotify.search({ type: 'track', query: songName }, function(err, data) {
+          if (err) {
+            return console.log('Error occurred: ' + err);
+          }
+        //   console.log(data.tracks)
+        //   for (var key in data.tracks) {
+        //       console.log( data.tracks.items[0].name)
+        //   }
+
+        data.tracks.items.map( function (track){
+            console.log('============')
+            console.log(track.name)
+            console.log(track.album.name)
+            console.log(track.artist.name)
+            console.log('============')
+            
+        } ); 
+});  
 
   }
 
@@ -81,7 +108,5 @@ axios.get(queryUrl).then(
           artistName += nodeArgs[i];
         }
       }
-      console.log(artistName)
-}
-
+  }
 
