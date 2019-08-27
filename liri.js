@@ -138,8 +138,44 @@ else if (process.argv[2] === "concert-this"){
     return console.log(error);
   }
 
-  // We will then print the contents of data
-  console.log(data);
+
+  for (var i = 3; i < nodeArgs.length; i++) {
+
+    if (i > 3 && i < nodeArgs.length) {
+      data = data + "+" + nodeArgs[i];
+    } else {
+        data += nodeArgs[i];
+    }
+  }
+console.log(songName)
+
+var Spotify = require('node-spotify-api');
+
+  var spotify = new Spotify({
+  id: "67c9837325db41789aef23ccf82794cc",
+  secret: "a8827e790c7e40a8b3375f14eab033d7",
+})
+
+  spotify.search({ type: 'track', query: data }, function(err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      }
+    //   console.log(data.tracks)
+    //   for (var key in data.tracks) {
+    //       console.log( data.tracks.items[0].name)
+    //   }
+
+    data.tracks.items.map( function (track){
+        console.log('============')
+        console.log(track.artists[0].name)
+        console.log(track.name)
+        console.log(track.artists[0].href)
+        console.log(track.album.name)
+        console.log('============')
+        
+    } ); 
+});  
+
 
 });
 
