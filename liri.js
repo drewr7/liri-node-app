@@ -119,7 +119,9 @@ else if (process.argv[2] === "concert"){
 
   axios.get(query).then(
       function(response) {
-        console.log(response.data[0].venue);
+        console.log(response.data[0].venue.name);
+        console.log(response.data[0].venue.city);
+        console.log(response.data[0].venue.region);
         console.log(response.data[0].datetime)
       })
  }
