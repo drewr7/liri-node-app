@@ -1,6 +1,7 @@
 
 // Include the axios npm package (Don't forget to run "npm install axios" in this folder first!)
 var axios = require("axios");
+var fs = require("fs")
 
 
 // Store all of the arguments in an array
@@ -10,10 +11,11 @@ var nodeArgs = process.argv;
 let movieName = "";
 let songName = "";
 let artistName = "";
+let randomtxt = "";
 
 // Loop through all the words in the node argument
 // And do a little for-loop magic to handle the inclusion of "+"s
-if (process.argv[2] === "movie"){
+if (process.argv[2] === "movie-this"){
 
 for (var i = 3; i < nodeArgs.length; i++) {
 
@@ -23,6 +25,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     movieName += nodeArgs[i];
   }
 }
+
 
 // Then run a request with axios to the OMDB API with the movie specified
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -63,7 +66,7 @@ axios.get(queryUrl).then(
     console.log(error.config);
   })}
 
-  else if (process.argv[2] === "song"){
+  else if (process.argv[2] === "spotify-this-song"){
 
     for (var i = 3; i < nodeArgs.length; i++) {
 
@@ -104,7 +107,7 @@ axios.get(queryUrl).then(
 
   }
 
-else if (process.argv[2] === "concert"){
+else if (process.argv[2] === "concert-this"){
   for (var i = 3; i < nodeArgs.length; i++) {
 
       if (i > 3 && i < nodeArgs.length) {
@@ -124,6 +127,22 @@ else if (process.argv[2] === "concert"){
         console.log(response.data[0].venue.region);
         console.log(response.data[0].datetime)
       })
+ }
+
+ else if (process.argv[2] === "do-what-it-says"){
+
+    fs.readFile("random.txt", "utf8", function(error, data) {
+
+  // If the code experiences any errors it will log the error to the console.
+  if (error) {
+    return console.log(error);
+  }
+
+  // We will then print the contents of data
+  console.log(data);
+
+});
+
  }
 
   else {
