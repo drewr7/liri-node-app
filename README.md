@@ -7,10 +7,10 @@
 
 - Application Screenshots
 
-    spotify-this-song : 
-    movie-this : 
-    concert-this :
-    do-what-it-says : 
+    spotify-this-song : ![Spotify]https://github.com/drewr7/liri-node-app/blob/master/Screenshots/Screen%20Shot%202019-09-16%20at%209.38.10%20PM.png
+    movie-this : ![Movie]https://github.com/drewr7/liri-node-app/blob/master/Screenshots/Screen%20Shot%202019-09-16%20at%209.38.38%20PM.png
+    concert-this : ![Concert]https://github.com/drewr7/liri-node-app/blob/master/Screenshots/Screen%20Shot%202019-09-16%20at%209.39.13%20PM.png
+    do-what-it-says : ![Random]https://github.com/drewr7/liri-node-app/blob/master/Screenshots/Screen%20Shot%202019-09-16%20at%209.39.55%20PM.png
 
 
 - Here is the link to the deployed version of my app: https://drewr7.github.io/liri-node-app/
